@@ -2,246 +2,406 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<script>document.documentElement.classList.add("js")</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sara Beheyt — Growth Marketing · Demand Gen · Lifecycle · Data</title>
-<meta name="description" content="Growth marketer for scaling SaaS. I systematize and automate growth until it runs by itself. Case studies with numbers: demand gen, lifecycle, analytics, AI systems.">
+<meta name="description" content="Growth marketer for scaling SaaS. Case studies with the story behind every number: demand generation, lifecycle systems, data analytics, AI automation.">
 <style>
   :root{
-    --ink:#1a2b23; --paper:#faf9f6; --accent:#1f6f4a; --accent-soft:#e8f2ec;
-    --muted:#5f6f66; --line:#e3e1da; --card:#ffffff;
+    --ink:#241f26; --paper:#faf6f1; --accent:#146c43; --accent2:#2e9e66;
+    --accent-soft:#e8f2ec; --muted:#6a6259; --line:#e6ddd1; --card:#fffefc;
+    --ref:#8a938e;
+    --amber:#b05f10; --amber-soft:#f7ecdd;
+    --berry:#b8336f; --berry-soft:#f9e6ee;
+    --blue:#33619e;  --blue-soft:#e7eef8;
   }
   *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
   body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
        background:var(--paper);color:var(--ink);line-height:1.65;font-size:17px}
-  .wrap{max-width:880px;margin:0 auto;padding:0 24px}
-  header{padding:72px 0 40px}
-  .kicker{color:var(--accent);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:13px}
-  h1{font-size:clamp(34px,6vw,52px);line-height:1.1;margin:10px 0 18px;letter-spacing:-.02em}
-  .lede{font-size:20px;color:var(--muted);max-width:640px}
+  .wrap{max-width:1020px;margin:0 auto;padding:0 24px}
+
+  /* ── Nav ── */
+  nav:before{content:"";display:block;height:4px;
+      background:linear-gradient(90deg,#146c43 0 25%,#b05f10 0 50%,#b8336f 0 75%,#33619e 0 100%)}
+  nav{position:sticky;top:0;background:rgba(250,249,246,.92);backdrop-filter:blur(8px);
+      border-bottom:1px solid var(--line);z-index:50}
+  .nav-in{max-width:1020px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+  .nav-in .brand{font-weight:800;letter-spacing:-.01em;margin-right:auto;text-decoration:none;color:var(--ink)}
+  nav a{color:var(--muted);text-decoration:none;font-weight:600;font-size:14.5px}
+  nav a:hover{color:var(--accent)}
+  nav a.cta{color:#fff;background:var(--accent);padding:6px 14px;border-radius:7px}
+
+  /* ── Hero ── */
+  header{padding:64px 0 36px}
+  .hero{display:grid;grid-template-columns:1.4fr .6fr;gap:48px;align-items:center}
+  .kicker{color:var(--accent);font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:13px}
+  h1{font-size:clamp(32px,5.4vw,48px);line-height:1.12;margin:10px 0 16px;letter-spacing:-.02em}
+  .lede{font-size:19px;color:var(--muted);max-width:600px}
   .lede strong{color:var(--ink)}
-  .links{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+  .links{margin-top:24px;display:flex;gap:12px;flex-wrap:wrap}
   .links a{display:inline-block;padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px;
            border:1.5px solid var(--ink);color:var(--ink);transition:all .15s}
   .links a.primary{background:var(--ink);color:var(--paper)}
   .links a:hover{background:var(--accent);border-color:var(--accent);color:#fff}
-  .video{margin:40px 0 0;padding:22px;background:var(--accent-soft);border-radius:12px;font-size:15px;color:var(--muted)}
-  .numbers{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin:56px 0}
-  .num{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px}
-  .num b{display:block;font-size:30px;letter-spacing:-.02em;color:var(--accent)}
-  .num span{font-size:14px;color:var(--muted)}
-  section{padding:48px 0;border-top:1px solid var(--line)}
-  h2{font-size:26px;margin-bottom:8px;letter-spacing:-.01em}
-  .sub{color:var(--muted);margin-bottom:28px;max-width:640px}
-  .lever{font-size:13px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--accent);margin:34px 0 10px}
-  details{background:var(--card);border:1px solid var(--line);border-radius:12px;margin-bottom:14px;overflow:hidden}
-  summary{cursor:pointer;padding:20px 22px;font-weight:650;font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:12px}
-  summary::-webkit-details-marker{display:none}
-  summary:after{content:"+";color:var(--accent);font-size:22px;font-weight:400}
-  details[open] summary:after{content:"–"}
-  summary .where{display:block;font-weight:400;font-size:14px;color:var(--muted);margin-top:2px}
-  .body{padding:0 22px 22px;font-size:16px}
-  .body h4{font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent);margin:18px 0 6px}
-  .body p{margin-bottom:10px}
-  .body ul{padding-left:20px;margin-bottom:10px}
-  .body li{margin-bottom:6px}
-  .proof{display:inline-block;margin-top:8px;font-size:14px;font-weight:600;color:var(--accent);text-decoration:none}
-  .proof:hover{text-decoration:underline}
-  .stack{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-  .stack span{font-size:13px;background:var(--accent-soft);color:var(--accent);border-radius:6px;padding:4px 10px;font-weight:600}
-  .how{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-  .how div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;font-size:15px}
-  .how b{display:block;margin-bottom:6px;font-size:16px}
-  footer{padding:56px 0 72px;border-top:1px solid var(--line)}
-  footer h2{margin-bottom:12px}
-  .foot-links{margin-top:18px;display:flex;gap:18px;flex-wrap:wrap;font-weight:600}
+  .headshot{width:100%;max-width:280px;aspect-ratio:1;border-radius:50%;object-fit:cover;
+            border:5px solid #fff;box-shadow:0 8px 40px rgba(26,43,35,.18);justify-self:center}
+
+  /* ── Proof chips ── */
+  .chips{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin:44px 0 8px}
+  .chip{display:block;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--acc,var(--accent));
+        border-radius:12px;padding:18px 20px;text-decoration:none;color:var(--ink);transition:box-shadow .15s}
+  .chip:hover{box-shadow:0 4px 20px rgba(26,43,35,.1)}
+  .chip b{display:block;font-size:26px;letter-spacing:-.02em;color:var(--acc,var(--accent))}
+  .chip span{font-size:14px;color:var(--muted)}
+  .chip em{display:block;font-style:normal;font-size:13px;font-weight:700;color:var(--acc,var(--accent));margin-top:8px}
+
+  /* ── Sections & chapters ── */
+  section{padding:52px 0 8px;scroll-margin-top:70px}
+  .lever{font-size:13px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--acc,var(--accent));
+         display:flex;align-items:center;gap:10px}
+  .lever:after{content:"";flex:1;height:1px;background:var(--line)}
+  .chapter{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center;
+           padding:34px 0 42px}
+  .chapter.flip .story{order:2}
+  .chapter.flip .visual{order:1}
+  .story h3{font-size:24px;letter-spacing:-.01em;margin-bottom:4px}
+  .where{font-size:14px;color:var(--muted);font-weight:600;margin-bottom:14px}
+  .ctx{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px}
+  .ctx span{font-size:12.5px;background:var(--acc-soft,var(--accent-soft));color:var(--acc,var(--accent));border-radius:6px;padding:3px 10px;font-weight:600}
+  .story p{margin-bottom:11px;font-size:16px}
+  .story p b{color:var(--acc,var(--accent))}
+  .learn{border-left:3px solid var(--acc,var(--accent));padding:2px 0 2px 14px;color:var(--muted);font-size:15px;font-style:italic}
+  .proof-link{display:inline-block;margin-top:12px;font-size:14.5px;font-weight:700;color:var(--acc,var(--accent));text-decoration:none}
+  .proof-link:hover{text-decoration:underline}
+  .visual{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px}
+  .visual figcaption{font-size:13px;color:var(--muted);margin-top:12px;line-height:1.5}
+  .visual h4{font-size:14.5px;margin-bottom:2px}
+  .visual .sub{font-size:13px;color:var(--muted);margin-bottom:12px}
+  svg{width:100%;height:auto;display:block}
+  svg text{font-family:inherit}
+
+  /* ── How I work ── */
+  .how{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:28px 0}
+  .how div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;font-size:15px;color:var(--muted)}
+  .how b{display:block;margin-bottom:6px;font-size:16px;color:var(--ink)}
+
+  /* ── About ── */
+  .about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start;margin-top:24px}
+  .photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .photo-grid img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:12px;border:1px solid var(--line)}
+  .photo-note{font-size:13px;color:var(--muted);border:1.5px dashed var(--line);border-radius:12px;
+              padding:18px;text-align:center;grid-column:1/-1}
+
+  footer{padding:52px 0 72px;border-top:1px solid var(--line);margin-top:40px;scroll-margin-top:70px}
+  .foot-links{margin-top:18px;display:flex;gap:18px;flex-wrap:wrap;font-weight:700}
   .foot-links a{color:var(--accent)}
   .fineprint{margin-top:28px;font-size:13px;color:var(--muted)}
+  .sub-lede{color:var(--muted);max-width:640px;margin-top:6px}
+
+  /* reveal animation */
+  html.js .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+  html.js .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion: reduce){ .reveal{opacity:1;transform:none;transition:none} html{scroll-behavior:auto} }
+
+  @media (max-width:840px){
+    .hero{grid-template-columns:1fr}
+    .headshot{max-width:180px;justify-self:start}
+    .chapter{grid-template-columns:1fr}
+    .chapter.flip .story{order:1}
+    .chapter.flip .visual{order:2}
+    .about-grid{grid-template-columns:1fr}
+  }
 </style>
 </head>
 <body>
-<div class="wrap">
+
+<nav>
+  <div class="nav-in">
+    <a class="brand" href="#top">Sara Beheyt</a>
+    <a href="#lifecycle">Lifecycle</a>
+    <a href="#demandgen">Demand Gen</a>
+    <a href="#ai">AI &amp; Automation</a>
+    <a href="#data">Data</a>
+    <a href="#about">About</a>
+    <a class="cta" href="#contact">Contact</a>
+  </div>
+</nav>
+
+<div class="wrap" id="top">
 
 <header>
-  <div class="kicker">Growth Marketing · Demand Gen · Lifecycle · Data</div>
-  <h1>I systematize and automate growth until it runs by itself.</h1>
-  <p class="lede">I'm <strong>Sara Beheyt</strong> — a growth marketer for scaling SaaS. Anything that has to be done twice, I turn into a system: dashboards, governance, and AI agents that handle what repeats, <strong>so the time goes to what compounds</strong>.</p>
-  <div class="links">
-    <a class="primary" href="mailto:beheyt.sara@hotmail.com">Get in touch</a>
-    <a href="https://www.linkedin.com/in/sara-beheyt/">LinkedIn</a>
-    <a href="https://github.com/sara-beh8">GitHub</a>
+  <div class="hero">
+    <div>
+      <div class="kicker">Growth Marketing · Demand Gen · Lifecycle · Data</div>
+      <h1>I systematize and automate growth until it runs by itself.</h1>
+      <p class="lede">I'm <strong>Sara Beheyt</strong> — a growth marketer for scaling SaaS companies. Anything that has to be done twice, I turn into a system: dashboards, governance, and AI automation that handle what repeats, <strong>so the time goes to what compounds</strong>.</p>
+      <div class="links">
+        <a class="primary" href="mailto:beheyt.sara@hotmail.com">Get in touch</a>
+        <a href="https://www.linkedin.com/in/sara-beheyt/">LinkedIn</a>
+        <a href="https://github.com/sara-beh8">GitHub</a>
+      </div>
+    </div>
+    <img class="headshot" src="photo.jpg" alt="Sara Beheyt" onerror="this.style.display='none'">
   </div>
-  <div class="video" id="loom">
-    🎥 <strong>2-minute intro & tour</strong> — coming here soon. (Loom embed placeholder)
+
+  <div class="chips">
+    <a class="chip reveal" href="#ai" style="--acc:var(--berry);--acc-soft:var(--berry-soft)"><b>≈2× booked calls</b><span>after automating the outbound motion end-to-end — from ~25 to ~52 per week</span><em>Read the story ↓</em></a>
+    <a class="chip reveal" href="#demandgen" style="--acc:var(--amber);--acc-soft:var(--amber-soft)"><b>3 validated · 5 killed · 1 pivoted</b><span>product concepts, decided by live demand tests before any engineering spend</span><em>Read the story ↓</em></a>
+    <a class="chip reveal" href="#data" style="--acc:var(--blue);--acc-soft:var(--blue-soft)"><b>44.8% → 22.7%</b><span>the day the open rate got honest — measurement fixed before optimization</span><em>Read the story ↓</em></a>
   </div>
 </header>
 
-<div class="numbers">
-  <div class="num"><b>3 · 5 · 1</b><span>products validated · ideas killed · pivoted — running demand tests to find a company's next product</span></div>
-  <div class="num"><b>~2×</b><span>weekly booked sales calls (≈20–30 → ≈50–55) after automating the outbound motion end-to-end</span></div>
-  <div class="num"><b>+7% MoM</b><span>north-star growth (words translated) owning a self-serve funnel through a PLG pivot</span></div>
-</div>
+<!-- ═════════ LIFECYCLE ═════════ -->
+<section id="lifecycle">
+  <div class="lever">Lifecycle &amp; Systems</div>
 
-<section id="work">
-  <h2>Case studies</h2>
-  <p class="sub">Grouped by growth lever, not by employer — because the point is the range. Every story: the problem, what I built, the numbers, and what it taught me.</p>
-
-  <div class="lever">🧲 Demand generation</div>
-
-  <details>
-    <summary><span>My job was to find the company's next product<span class="where">Usercentrics — Incubation team · 2025</span></span></summary>
-    <div class="body">
-      <h4>The problem</h4>
-      <p>Usercentrics' incubation team had a mandate: validate at least five new product concepts a year — with real market demand, before any engineering spend.</p>
-      <h4>What I built</h4>
-      <p>A repeatable demand-test engine: framework-driven market research → ICP definition → landing pages → paid campaigns on LinkedIn, Google Ads, and community channels (Reddit, Quora). Measured like an investor, not a media buyer: CAC, CLV, CPL, lead volume, plus qualitative feedback on product needs. I defined the validation criterion itself: a concept passed when <strong>CAC fell over the test window</strong> — falling acquisition cost means compounding demand, not just spend.</p>
-      <h4>The result</h4>
-      <ul>
-        <li><strong>3 products validated · 5 ideas killed · 1 pivoted</strong> — the kills saved months of build cost</li>
-        <li>Best test drove cost per lead to <strong>€14</strong> within one month</li>
-        <li>One validated concept — privacy-friendly analytics — was pushed forward to build</li>
-      </ul>
-      <h4>What it taught me</h4>
-      <p>Killing an idea with clean evidence is as valuable as validating one — and much cheaper than finding out after launch.</p>
-      <div class="stack"><span>LinkedIn Ads</span><span>Google Ads</span><span>Reddit</span><span>Quora</span><span>GA4</span><span>GTM</span><span>Looker</span></div>
+  <div class="chapter reveal">
+    <div class="story">
+      <h3>A lifecycle program where old campaigns create new ones</h3>
+      <div class="where">Gorgias — AI customer-experience platform, 15,000+ ecommerce brands · 2025–26</div>
+      <div class="ctx"><span>Customer.io</span><span>Claude Code</span><span>Cargo</span><span>n8n</span><span>BigQuery</span></div>
+      <p>I inherited ~15 campaigns running in parallel — some over a year old, carrying outdated product claims, stale designs, and naming conventions from three generations of previous owners. No registry, no renewal process: campaigns were built, launched, and forgotten.</p>
+      <p>Instead of rebuilding them one by one, I built the <b>operating system that renews them</b>: AI-assisted audits, rebuilds that must pull current product context, governance rails (naming and UTM conventions, mandatory eligibility segments), and the entire build pipeline — design, segment, copy, HTML, QA — codified as AI skills. Every renewal is logged in a campaign registry.</p>
+      <p>The estate now regenerates: Weekly Email reached its third generation, the winback campaign its second. The team closed Q1 2026 at <b>106% of its net-new ARR plan</b>, with AI cross-sell at 167% — and the system was handed over as documentation, not tribal knowledge.</p>
+      <p class="learn">A campaign is an artifact; a renewal loop is an asset. Build the loop.</p>
+      <a class="proof-link" href="https://github.com/sara-beh8/lifecycle-campaign-skills">→ The system, generalized, on GitHub</a>
     </div>
-  </details>
-
-  <details>
-    <summary><span>The Trustpilot hack that changed my career<span class="where">Unbabel — BDR → Growth Engineer · 2022</span></span></summary>
-    <div class="body">
-      <h4>The problem</h4>
-      <p>As a BDR selling translation-AI, I was manually prospecting — slow, and blind to which companies actually needed us.</p>
-      <h4>What I built</h4>
-      <p>I learned the Python I needed in a week and built a tool that scraped Trustpilot reviews of enterprise prospects and checked one thing: <strong>did the company reply in the language the customer complained in?</strong> A mismatch meant a company visibly failing at multilingual support — a perfectly qualified prospect. I layered data enrichment on top to see what tools they used.</p>
-      <h4>The result</h4>
-      <ul>
-        <li>Cold pitches became consultative calls: "here's what your customers are actually experiencing"</li>
-        <li><strong>Promoted to Growth Engineer</strong> on the back of the tool</li>
-      </ul>
-      <h4>What it taught me</h4>
-      <p>The habit that's defined every role since: if a process bores you, that's the signal to automate it.</p>
-      <div class="stack"><span>Python</span><span>Web scraping</span><span>Salesforce</span><span>Data enrichment</span></div>
-    </div>
-  </details>
-
-  <div class="lever">🧪 Experimentation & funnel</div>
-
-  <details>
-    <summary><span>Taking an enterprise product self-serve<span class="where">Unbabel — Growth Engineer · 2023–24</span></span></summary>
-    <div class="body">
-      <h4>The problem</h4>
-      <p>Unbabel sold enterprise translation-AI, and the CEO wanted a self-serve motion. The product's language was enterprise too — localization jargon everywhere — and the signup funnel showed it.</p>
-      <h4>What I did</h4>
-      <p>Owned the trial-signup and self-serve funnel. Ran customer interviews and market research that identified jargon as the conversion killer, partnered with a designer on a full UX rework, and A/B-tested across acquisition, product enablement, and onboarding simplification.</p>
-      <h4>The result</h4>
-      <ul><li>The company north star — <strong>words translated per month — grew at its +7% month-over-month target</strong> on my watch</li></ul>
-      <h4>What it taught me</h4>
-      <p>Users don't convert in your vocabulary; they convert in theirs. Interviews beat opinions.</p>
-      <div class="stack"><span>A/B testing</span><span>User interviews</span><span>GA4</span><span>Looker</span><span>UX collaboration</span></div>
-    </div>
-  </details>
-
-  <div class="lever">🔁 Lifecycle & retention</div>
-
-  <details>
-    <summary><span>A lifecycle program where old campaigns create new ones<span class="where">Gorgias — Lifecycle Growth Manager · 2025–26</span></span></summary>
-    <div class="body">
-      <h4>The problem</h4>
-      <p>I inherited ~15 lifecycle campaigns running in parallel at an AI customer-experience platform serving 15,000+ ecommerce brands — some campaigns over a year old, carrying outdated product info, stale designs, and naming conventions from three generations of previous owners. Overlapping audiences, no documentation home, no renewal process. Built, launched, forgotten.</p>
-      <h4>What I built</h4>
-      <p>An operating system that renews itself: AI-assisted audits of every campaign → rebuilds that must pull current product context → governance rails (mandatory eligibility baseline, exclusion lists, standardized naming + UTM conventions) → a campaign registry logging every renewal → the whole build pipeline (design → segment → copy → HTML → QA) codified as Claude Code skills, with prompts versioned and evaluated.</p>
-      <h4>The result</h4>
-      <ul>
-        <li>Old campaigns now systematically generate their successors (Weekly Email v1→v2→v3; winback v1→v2)</li>
-        <li>Team closed Q1 2026 at <strong>106% of net-new ARR plan; AI cross-sell at 167%</strong></li>
-        <li>An A/B test shipping every ~2 weeks across 10–15 campaigns</li>
-        <li>The system outlived me — handed over as documentation + skills, not tribal knowledge</li>
-      </ul>
-      <h4>What it taught me</h4>
-      <p>A campaign is an artifact; a renewal loop is an asset. Build the loop.</p>
-      <a class="proof" href="https://github.com/sara-beh8">→ See the system: lifecycle-campaign-skills &amp; lifecycle-ops-standards on GitHub</a>
-      <div class="stack"><span>Customer.io</span><span>Claude Code</span><span>Cargo</span><span>n8n</span><span>BigQuery</span><span>PromptLayer</span></div>
-    </div>
-  </details>
-
-  <details>
-    <summary><span>Making the metrics honest before optimizing them<span class="where">Gorgias — Weekly Email rebuild · 2026</span></span></summary>
-    <div class="body">
-      <h4>The problem</h4>
-      <p>A weekly newsletter to ~14k accounts looked healthy at 44.8% opens. It wasn't: flows were broken, ~50% of the cohort silently never received emails, segmentation was one-size-fits-all, and the "44.8%" was inflated by Apple's machine opens.</p>
-      <h4>What I did</h4>
-      <p>First, honesty: I separated human from machine metrics — real human opens were 22.7% — and reset the campaign's success criteria on human numbers. Then the rebuild: engagement-bucket segmentation (Active / Ignoring / Dark, each with its own flow), a two-step AI personalization pipeline with hard guardrails against hallucinated URLs and product names, proper exclusion logic, and a metrics migration to ClickHouse — working alongside the data intelligence team.</p>
-      <h4>The result</h4>
-      <ul>
-        <li>Personalization test won with <strong>+5.6% CTR</strong>; follow-up test lifted CTOR from 6.7% toward a ≥10% target</li>
-        <li>Segmentation projected <strong>+24% opens &amp; clicks on 17% less volume</strong></li>
-        <li>And one honest failure: the first AI-tips variant failed QA (10.5% render errors, hallucinated links). I held it back, documented the negative result, and shipped the guardrail system instead. That guardrail system is now the foundation the pipeline runs on.</li>
-      </ul>
-      <h4>What it taught me</h4>
-      <p>Optimizing an inflated metric is decorating a broken house. Fix the measurement first — even when the honest number looks worse.</p>
-      <div class="stack"><span>Customer.io</span><span>Claude</span><span>ClickHouse</span><span>Segmentation</span><span>QA guardrails</span></div>
-    </div>
-  </details>
-
-  <div class="lever">📊 Data & analytics</div>
-
-  <details>
-    <summary><span>Ten years of building the dashboard<span class="where">SYZYGY · BOSAQ · Unbabel · Gorgias</span></span></summary>
-    <div class="body">
-      <p>At every company I've worked for, I ended up building the measurement layer — because you can't scale what you can't read.</p>
-      <ul>
-        <li><strong>SYZYGY (2015, London)</strong> — paid search for Avis &amp; Budget: built campaign naming conventions for per-market tracking, add-on engagement analytics, and remarketing on high-interest add-ons — so budget flowed to campaigns driving real bookings</li>
-        <li><strong>BOSAQ (2019, Ghent)</strong> — first marketer at a 4-person company: built the channel-impact dashboard in SQL, Power BI and R that decided how ~€100k was allocated across three brands and three completely different growth motions (B2B lead gen, events/PR, paid social)</li>
-        <li><strong>Unbabel (2023)</strong> — owned the growth analytics stack: GTM, GA4, Looker, ROI reporting to management</li>
-        <li><strong>Gorgias (2026)</strong> — rebuilt the lifecycle dashboard in Metabase from activity-reporting to impact-led and OKR-anchored; migrated campaign metrics to ClickHouse; separated human from machine engagement</li>
-      </ul>
-      <h4>What it taught me</h4>
-      <p>The naming conventions I built for Avis in 2015 are the same pattern I rebuilt at Gorgias in 2026: make things trackable <em>before</em> optimizing them. Some lessons just keep paying.</p>
-      <div class="stack"><span>SQL</span><span>Metabase</span><span>Power BI</span><span>Looker</span><span>GA4</span><span>R</span><span>ClickHouse</span></div>
-    </div>
-  </details>
-
-  <div class="lever">🤖 Systems & AI</div>
-
-  <details>
-    <summary><span>Automating a sales team's research job<span class="where">Gorgias — outbound automation · 2026</span></span></summary>
-    <div class="body">
-      <h4>The problem</h4>
-      <p>Booking sales calls required manual account research — the classic SDR grind: find the right accounts, understand their situation, write a relevant email. Slow, inconsistent, unscalable.</p>
-      <h4>What I built</h4>
-      <p>The whole motion, end-to-end: account research on defined data traits in BigQuery → Claude-personalized email sequences → orchestrated through n8n → delivered via Customer.io, with separate variants for self-serve (PLG) and sales-led (SLG) accounts. I also co-built the next iteration with the data intelligence team: a "context layer" where an LLM diagnoses 10,000+ accounts against product-usage signals and takes automated actions (Claude + Cargo + LangSmith, prompts versioned in GitHub).</p>
-      <h4>The result</h4>
-      <ul>
-        <li>Booked sales calls grew from <strong>≈20–30 to ≈50–55 per week</strong></li>
-        <li>Context-layer pilot: <strong>+5% automated interactions</strong> in its first cohort</li>
-      </ul>
-      <h4>What it taught me</h4>
-      <p>AI doesn't replace the growth playbook — it removes the excuse for not running it on every account.</p>
-      <a class="proof" href="https://github.com/sara-beh8">→ Related tooling on GitHub</a>
-      <div class="stack"><span>Claude</span><span>n8n</span><span>BigQuery</span><span>Cargo</span><span>LangSmith</span><span>Customer.io</span></div>
-    </div>
-  </details>
-</section>
-
-<section id="how">
-  <h2>How I work</h2>
-  <p class="sub">The pattern behind the case studies:</p>
-  <div class="how">
-    <div><b>1. Make it measurable</b>Naming conventions, tracking, honest metrics — before any optimization. Every time.</div>
-    <div><b>2. Automate what repeats</b>If it has to be done twice, it becomes a system — a dashboard, a skill, an agent.</div>
-    <div><b>3. Kill things cleanly</b>Falling CAC validates; rising CAC kills. Negative results get documented, not buried.</div>
-    <div><b>4. Build for succession</b>Registries, docs, governance — systems that keep working after I hand them over.</div>
+    <figure class="visual">
+      <h4>The renewal loop</h4>
+      <div class="sub">Every campaign is born with its next version scheduled</div>
+      <svg viewBox="0 0 340 300" role="img" aria-label="Diagram of the campaign renewal loop: audit, pull current product context, rebuild, QA against guardrails, log in registry, repeat">
+        <defs><marker id="arr" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L8 4L0 8z" fill="#146c43"/></marker></defs>
+        <g fill="none" stroke="#146c43" stroke-width="2">
+          <path d="M170 66 A88 88 0 0 1 245 116" marker-end="url(#arr)"/>
+          <path d="M252 150 A88 88 0 0 1 218 224" marker-end="url(#arr)"/>
+          <path d="M190 244 A88 88 0 0 1 118 238" marker-end="url(#arr)"/>
+          <path d="M95 218 A88 88 0 0 1 82 140" marker-end="url(#arr)"/>
+          <path d="M95 105 A88 88 0 0 1 148 65" marker-end="url(#arr)"/>
+        </g>
+        <g font-size="12.5" font-weight="700" text-anchor="middle">
+          <g><rect x="118" y="36" width="104" height="30" rx="8" fill="#e8f2ec"/><text x="170" y="55" fill="#146c43">1 · Audit</text></g>
+          <g><rect x="216" y="112" width="118" height="42" rx="8" fill="#e8f2ec"/><text x="275" y="129" fill="#146c43">2 · Pull current</text><text x="275" y="145" fill="#146c43">product context</text></g>
+          <g><rect x="180" y="224" width="96" height="30" rx="8" fill="#e8f2ec"/><text x="228" y="243" fill="#146c43">3 · Rebuild</text></g>
+          <g><rect x="34" y="218" width="118" height="42" rx="8" fill="#e8f2ec"/><text x="93" y="235" fill="#146c43">4 · QA against</text><text x="93" y="251" fill="#146c43">guardrails</text></g>
+          <g><rect x="30" y="106" width="110" height="42" rx="8" fill="#e8f2ec"/><text x="85" y="123" fill="#146c43">5 · Log in</text><text x="85" y="139" fill="#146c43">registry</text></g>
+          <text x="170" y="160" fill="#1a2b23" font-size="13">the estate</text>
+          <text x="170" y="176" fill="#1a2b23" font-size="13">renews itself</text>
+        </g>
+      </svg>
+      <figcaption>The pipeline behind steps 2–4 is public (generalized, synthetic data) in <a href="https://github.com/sara-beh8/lifecycle-campaign-skills" style="color:var(--accent)">lifecycle-campaign-skills</a> and <a href="https://github.com/sara-beh8/lifecycle-ops-standards" style="color:var(--accent)">lifecycle-ops-standards</a>.</figcaption>
+    </figure>
   </div>
 </section>
 
-<section id="about">
-  <h2>Beyond work</h2>
-  <p class="sub">I like building things from the studs — literally. I'm rebuilding my own house, I garden, and I distill and dry my own essential oils (and make my own cleaning products from them). Dogs and nature fill the rest. Based in Portugal; French native, English bilingual; I've lived and worked in London, Brussels, Ghent and Lisbon.</p>
+<!-- ═════════ DEMAND GEN ═════════ -->
+<section id="demandgen" style="--acc:var(--amber);--acc-soft:var(--amber-soft)">
+  <div class="lever">Demand Generation</div>
+
+  <div class="chapter reveal">
+    <div class="story">
+      <h3>My job was to find the company's next product</h3>
+      <div class="where">Usercentrics — incubation team · 2025</div>
+      <div class="ctx"><span>LinkedIn Ads</span><span>Google Ads</span><span>Reddit</span><span>Quora</span><span>GA4</span><span>Looker</span></div>
+      <p>The incubation team's mandate: validate at least five new product concepts a year with real market demand — before any engineering spend. I ran the demand-test engine: framework-driven market research, ICP definition, landing pages, and paid campaigns across LinkedIn, Google, and community channels.</p>
+      <p>I measured like an investor, not a media buyer — CAC, CLV, CPL, and qualitative product-need feedback — and defined the pass criterion itself: a concept passed when <b>acquisition cost fell over the test window</b>, because falling CAC means compounding demand rather than purchased attention. The best test drove cost per lead to <b>€14 within one month</b>; one validated concept, privacy-friendly analytics, went on to build.</p>
+      <p class="learn">Killing an idea with clean evidence is as valuable as validating one — and far cheaper than finding out after launch.</p>
+    </div>
+    <figure class="visual">
+      <h4>Nine concepts, one year — the verdicts</h4>
+      <div class="sub">Each decided by live demand tests</div>
+      <svg viewBox="0 0 340 190" role="img" aria-label="Bar chart of product concept verdicts: 3 validated, 5 killed, 1 pivoted">
+        <line x1="40" y1="140" x2="320" y2="140" stroke="#e3e1da" stroke-width="1"/>
+        <path d="M64 74 v66 h56 v-66 a4 4 0 0 0 -4 -4 h-48 a4 4 0 0 0 -4 4z" fill="#b05f10"/>
+        <path d="M154 30 v110 h56 V30 a4 4 0 0 0 -4 -4 h-48 a4 4 0 0 0 -4 4z" fill="#b05f10"/>
+        <path d="M244 118 v22 h56 v-22 a4 4 0 0 0 -4 -4 h-48 a4 4 0 0 0 -4 4z" fill="#b05f10"/>
+        <g font-size="15" font-weight="800" fill="#1a2b23" text-anchor="middle">
+          <text x="92" y="60">3</text><text x="182" y="16" dy="4">5</text><text x="272" y="104">1</text>
+        </g>
+        <g font-size="13" fill="#5f6f66" text-anchor="middle">
+          <text x="92" y="162">validated</text><text x="182" y="162">killed</text><text x="272" y="162">pivoted</text>
+        </g>
+        <title>Product concept verdicts: 3 validated, 5 killed, 1 pivoted</title>
+      </svg>
+      <figcaption>The five kills are the quiet win: engineering quarters that were never spent on products the market didn't want. Validation signal: CAC falling over the test window — best test, €14/lead.</figcaption>
+    </figure>
+  </div>
+
+  <div class="chapter flip reveal">
+    <div class="story">
+      <h3>The prospecting tool that changed my career</h3>
+      <div class="where">Unbabel — translation AI, Series C · 2022–24</div>
+      <div class="ctx"><span>Python</span><span>Web scraping</span><span>Salesforce</span><span>GA4</span><span>Looker</span></div>
+      <p>As a BDR selling translation software, I was prospecting manually — slow, and blind to who actually needed us. I learned the Python I needed in one week and built a tool that scraped Trustpilot reviews of enterprise prospects and checked one thing: <b>did the company reply in the language the customer wrote in?</b> A mismatch meant visible multilingual-support failure — a perfectly qualified prospect. Cold pitches became consultative calls, and the tool earned my promotion to Growth Engineer.</p>
+      <p>In the growth role I owned the trial-signup funnel as the company took its enterprise product self-serve: customer interviews exposed jargon as the conversion killer, a full UX rework with design followed, and A/B tests ran across acquisition and onboarding. The north star — <b>words translated per month — grew at its +7% month-over-month target</b>.</p>
+      <p class="learn">If a process bores you, that's the signal to automate it — a habit that has defined every role since.</p>
+    </div>
+    <figure class="visual">
+      <h4>How the Trustpilot tool qualified prospects</h4>
+      <div class="sub">Public reviews as a demand signal</div>
+      <svg viewBox="0 0 340 216" role="img" aria-label="Flow diagram: scrape Trustpilot reviews, compare customer language to reply language, mismatches become qualified prospects with evidence">
+        <defs><marker id="arr2" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L8 4L0 8z" fill="#b05f10"/></marker></defs>
+        <g font-size="12.5" font-weight="700" text-anchor="middle">
+          <rect x="85" y="10" width="170" height="34" rx="8" fill="#f7ecdd"/><text x="170" y="31" fill="#b05f10">Scrape prospect's reviews</text>
+          <rect x="85" y="78" width="170" height="46" rx="8" fill="#f7ecdd"/><text x="170" y="97" fill="#b05f10">Customer's language</text><text x="170" y="113" fill="#b05f10">= reply language?</text>
+          <rect x="16" y="164" width="140" height="40" rx="8" fill="#fff"/><rect x="16" y="164" width="140" height="40" rx="8" fill="none" stroke="#e3e1da"/><text x="86" y="182" fill="#5f6f66">match →</text><text x="86" y="197" fill="#5f6f66">deprioritize</text>
+          <rect x="184" y="158" width="146" height="52" rx="8" fill="#b05f10"/><text x="257" y="179" fill="#fff">mismatch →</text><text x="257" y="196" fill="#fff">qualified prospect</text>
+        </g>
+        <g fill="none" stroke="#b05f10" stroke-width="2">
+          <line x1="170" y1="44" x2="170" y2="72" marker-end="url(#arr2)"/>
+          <path d="M130 124 L86 158" marker-end="url(#arr2)"/>
+          <path d="M210 124 L250 152" marker-end="url(#arr2)"/>
+        </g>
+      </svg>
+      <figcaption>The call opened with evidence: "here is what your customers are experiencing." Data enrichment on the prospect's tool stack completed the picture.</figcaption>
+    </figure>
+  </div>
 </section>
 
-<footer>
-  <h2>What I'm looking for</h2>
-  <p class="sub">A company whose growth needs to be <strong>scaled and systematized</strong> — remote-first, AI-native, at the stage where the machine still needs building. If that's you, let's talk.</p>
+<!-- ═════════ AI & AUTOMATION ═════════ -->
+<section id="ai" style="--acc:var(--berry);--acc-soft:var(--berry-soft)">
+  <div class="lever">AI &amp; Automation</div>
+
+  <div class="chapter flip reveal">
+    <div class="story">
+      <h3>Automating a sales team's research job</h3>
+      <div class="where">Gorgias · 2026</div>
+      <div class="ctx"><span>BigQuery</span><span>Claude</span><span>n8n</span><span>Customer.io</span><span>LangSmith</span></div>
+      <p>Booking sales calls required the classic SDR grind: find the right accounts, understand their situation, write a relevant email. Slow, inconsistent, and impossible to scale with headcount.</p>
+      <p>I built the whole motion end-to-end: account research on defined data traits in BigQuery, Claude-personalized sequences, orchestrated through n8n, delivered via Customer.io — with separate variants for self-serve and sales-led accounts. Alongside the data intelligence team, I then co-built a <b>"context layer"</b>: an LLM that diagnoses 10,000+ accounts against product-usage signals and takes automated actions — <b>+5% automated interactions</b> in its first cohort.</p>
+      <p class="learn">AI doesn't replace the growth playbook — it removes the excuse for not running it on every account.</p>
+    </div>
+    <figure class="visual">
+      <h4>Booked sales calls per week</h4>
+      <div class="sub">Before and after the automated outbound program</div>
+      <svg viewBox="0 0 340 210" role="img" aria-label="Bar chart: booked sales calls grew from roughly 25 per week before automation to roughly 52 after">
+        <g stroke="#e3e1da" stroke-width="1">
+          <line x1="46" y1="160" x2="320" y2="160"/>
+        </g>
+        <path d="M96 92 h64 a4 4 0 0 1 4 4 v64 h-72 v-64 a4 4 0 0 1 4-4z" fill="#d1719c" transform="translate(0,0)"/>
+        <path d="M92 88 v72 h72 v-72 a4 4 0 0 0 -4 -4 h-64 a4 4 0 0 0 -4 4z" fill="#d1719c"/>
+        <path d="M216 22 v138 h72 V22 a4 4 0 0 0 -4 -4 h-64 a4 4 0 0 0 -4 4z" fill="#b8336f"/>
+        <g font-size="14" font-weight="800" fill="#1a2b23" text-anchor="middle">
+          <text x="128" y="74">20–30</text>
+          <text x="252" y="8" dy="4">50–55</text>
+        </g>
+        <g font-size="13" fill="#5f6f66" text-anchor="middle">
+          <text x="128" y="182">before</text>
+          <text x="252" y="182">after automation</text>
+        </g>
+        <title>Booked sales calls per week: 20–30 before, 50–55 after the automated outbound program</title>
+      </svg>
+      <figcaption>Weekly ranges as reported to the growth team; the mid-points are ~25 → ~52, roughly 2×. The sales team consumed the calls; the pipeline that booked them ran itself.</figcaption>
+    </figure>
+  </div>
+</section>
+
+
+
+<!-- ═════════ DATA ═════════ -->
+<section id="data" style="--acc:var(--blue);--acc-soft:var(--blue-soft)">
+  <div class="lever">Data &amp; Measurement</div>
+
+  <div class="chapter reveal">
+    <div class="story">
+      <h3>Making the metrics honest before optimizing them</h3>
+      <div class="where">Gorgias — Weekly Email, ~14,000 recipients · 2026</div>
+      <div class="ctx"><span>Customer.io</span><span>ClickHouse</span><span>Segmentation</span><span>QA guardrails</span></div>
+      <p>A weekly newsletter looked healthy at 44.8% opens. It wasn't: the figure was inflated by machine opens, flows were broken, half the cohort silently never received emails, and one signal referenced a product that no longer existed.</p>
+      <p>Honesty came first: I separated human from machine engagement — real human opens were <b>22.7%</b> — and reset the campaign's success criteria on human metrics before touching a single subject line. Then the rebuild: engagement-bucket segmentation (Active / Ignoring / Dark, each with its own flow), a two-step AI personalization pipeline with hard guardrails against invented links and product names, and a metrics migration to ClickHouse with the data intelligence team.</p>
+      <p>Results on honest numbers: the personalization test won with <b>+5.6% CTR</b>; the new segmentation projected <b>+24% opens and clicks on 17% less volume</b>. And one result that failed: an AI-tips variant QA'd at 4.0% CTOR with a 10.5% render-failure rate — I held it back, documented the negative result, and shipped the guardrail system it exposed. That guardrail system is now what the pipeline runs on.</p>
+      <p class="learn">Optimizing an inflated metric is decorating a broken house. Fix the measurement first — even when the honest number looks worse.</p>
+    </div>
+    <figure class="visual">
+      <h4>The same sends, two definitions of "open"</h4>
+      <div class="sub">Weekly Email, February 2026</div>
+      <svg viewBox="0 0 340 210" role="img" aria-label="Bar chart comparing the reported open rate of 44.8 percent, inflated by machine opens, with the true human open rate of 22.7 percent">
+        <line x1="40" y1="160" x2="320" y2="160" stroke="#e3e1da" stroke-width="1"/>
+        <path d="M84 34 v126 h68 V34 a4 4 0 0 0 -4 -4 h-60 a4 4 0 0 0 -4 4z" fill="#8a938e"/>
+        <path d="M208 96 v64 h68 v-64 a4 4 0 0 0 -4 -4 h-60 a4 4 0 0 0 -4 4z" fill="#33619e"/>
+        <g font-size="15" font-weight="800" text-anchor="middle">
+          <text x="118" y="20" dy="4" fill="#5f6f66">44.8%</text>
+          <text x="242" y="82" fill="#1a2b23">22.7%</text>
+        </g>
+        <g font-size="13" fill="#5f6f66" text-anchor="middle">
+          <text x="118" y="180">reported</text><text x="118" y="196">(machine-inflated)</text>
+          <text x="242" y="180">human opens</text><text x="242" y="196">(new success metric)</text>
+        </g>
+        <title>Reported opens 44.8% versus human opens 22.7%</title>
+      </svg>
+      <figcaption>Apple's mail privacy features register opens no human made. Every success threshold was rebuilt on the green number.</figcaption>
+    </figure>
+  </div>
+
+  <div class="chapter flip reveal">
+    <div class="story">
+      <h3>Ten years of building the measurement layer</h3>
+      <div class="where">SYZYGY · BOSAQ · Unbabel · Gorgias · 2015–2026</div>
+      <div class="ctx"><span>SQL</span><span>Metabase</span><span>Power BI</span><span>Looker</span><span>GA4</span><span>R</span></div>
+      <p>At every company, I ended up building the dashboard — because budget decisions deserve better than intuition. At <b>SYZYGY</b> (paid search for Avis &amp; Budget), campaign naming conventions made per-market performance trackable, so spend followed real bookings. At <b>BOSAQ</b> — where I was the first marketer at a 4-person company — a SQL/Power BI/R dashboard decided how ~€100k was allocated across three brands and three completely different growth motions. At <b>Unbabel</b> I owned the growth analytics stack; at <b>Gorgias</b> I rebuilt lifecycle reporting from activity metrics to impact- and OKR-anchored ones.</p>
+      <p class="learn">The naming conventions I designed for Avis in 2015 are the pattern I rebuilt at Gorgias in 2026: make things trackable before optimizing them.</p>
+    </div>
+    <figure class="visual">
+      <h4>One habit, four companies</h4>
+      <div class="sub">Every stop: build the measurement layer, then scale what works</div>
+      <svg viewBox="0 0 340 190" role="img" aria-label="Timeline from 2015 to 2026: SYZYGY, BOSAQ, Unbabel, Usercentrics, Gorgias — with the measurement system built at each">
+        <line x1="28" y1="46" x2="318" y2="46" stroke="#e3e1da" stroke-width="2"/>
+        <g fill="#33619e">
+          <circle cx="40" cy="46" r="6"/><circle cx="104" cy="46" r="6"/><circle cx="172" cy="46" r="6"/><circle cx="238" cy="46" r="6"/><circle cx="300" cy="46" r="6"/>
+        </g>
+        <g font-size="12" font-weight="800" fill="#1a2b23" text-anchor="middle">
+          <text x="40" y="26">2015</text><text x="104" y="26">2019</text><text x="172" y="26">2022</text><text x="238" y="26">2025</text><text x="300" y="26">2026</text>
+        </g>
+        <g font-size="11.5" fill="#5f6f66" text-anchor="middle">
+          <text x="40" y="70">SYZYGY</text><text x="40" y="85">naming</text><text x="40" y="99">conventions</text>
+          <text x="104" y="70">BOSAQ</text><text x="104" y="85">channel-impact</text><text x="104" y="99">dashboard</text>
+          <text x="172" y="70">Unbabel</text><text x="172" y="85">growth</text><text x="172" y="99">analytics</text>
+          <text x="238" y="70">Usercentrics</text><text x="238" y="85">demand-test</text><text x="238" y="99">metrics</text>
+          <text x="300" y="70">Gorgias</text><text x="300" y="85">impact-led</text><text x="300" y="99">reporting</text>
+        </g>
+        <g font-size="11.5" font-weight="700" fill="#33619e" text-anchor="middle">
+          <text x="170" y="135">2015 ────────── the same pattern ────────── 2026</text>
+          <text x="170" y="155">make it trackable → then optimize</text>
+        </g>
+      </svg>
+    </figure>
+  </div>
+</section>
+
+<!-- ═════════ HOW I WORK ═════════ -->
+<section id="how">
+  <div class="lever">How I Work</div>
+  <div class="how">
+    <div class="reveal"><b>1 · Make it measurable</b>Naming conventions, tracking, honest metrics — before any optimization. Every time.</div>
+    <div class="reveal"><b>2 · Automate what repeats</b>Anything done twice becomes a system: a dashboard, a pipeline, an AI skill.</div>
+    <div class="reveal"><b>3 · Decide with evidence</b>Falling CAC validates; rising CAC kills. Negative results are documented, not buried.</div>
+    <div class="reveal"><b>4 · Build for succession</b>Registries, documentation, governance — systems that keep working after handover.</div>
+  </div>
+</section>
+
+<!-- ═════════ ABOUT ═════════ -->
+<section id="about">
+  <div class="lever">Beyond Work</div>
+  <div class="about-grid">
+    <div class="reveal">
+      <p style="font-size:17px">I build things from the ground up — at work and at home. I'm rebuilding my own house, I garden, and I distill and dry my own essential oils. In 2024 I took a nine-month sabbatical to travel through Madagascar.</p>
+      <p style="margin-top:12px;color:var(--muted)">Based in Lisbon, Portugal, working remotely. French native, English bilingual, working Portuguese and Danish — I've lived and worked in London, Brussels, Ghent, and Lisbon.</p>
+      <p style="margin-top:12px;color:var(--muted)">What I'm looking for next: a company whose growth needs to be <strong style="color:var(--ink)">scaled and systematized</strong> — remote-first, AI-native, at the stage where the machine still needs building.</p>
+    </div>
+    <div class="photo-grid reveal">
+      <img src="about-1.jpg" alt="" onerror="this.style.display='none'">
+      <img src="about-2.jpg" alt="" onerror="this.style.display='none'">
+      <img src="about-3.jpg" alt="" onerror="this.style.display='none'">
+      <img src="about-4.jpg" alt="" onerror="this.style.display='none'">
+      <div class="photo-note" id="photo-note">Photos of the house project, the garden, and Madagascar — coming soon.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ CONTACT ═════════ -->
+<footer id="contact">
+  <h2 style="font-size:26px;letter-spacing:-.01em">Let's talk</h2>
+  <p class="sub-lede">If your growth needs a system rather than another campaign, I'd be glad to hear from you.</p>
   <div class="foot-links">
     <a href="mailto:beheyt.sara@hotmail.com">beheyt.sara@hotmail.com</a>
     <a href="https://www.linkedin.com/in/sara-beheyt/">LinkedIn</a>
@@ -251,5 +411,14 @@
 </footer>
 
 </div>
+
+<script>
+  const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }), {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  // hide the photo placeholder note once at least one photo loads
+  document.querySelectorAll('.photo-grid img').forEach(img => img.addEventListener('load', () => {
+    const n = document.getElementById('photo-note'); if(n) n.style.display='none';
+  }));
+</script>
 </body>
 </html>
