@@ -83,6 +83,15 @@
   svg{width:100%;height:auto;display:block}
   svg text{font-family:inherit}
 
+  /* ── Filter pills ── */
+  .filter{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0 4px}
+  .filter button{font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;
+    border:1.5px solid var(--acc,var(--ink));color:var(--acc,var(--ink));background:transparent;
+    border-radius:999px;padding:7px 16px;transition:all .15s}
+  .filter button:hover{background:var(--acc-soft,var(--accent-soft))}
+  .filter button.active{background:var(--acc,var(--ink));color:#fff}
+  .case.hidden{display:none}
+
   /* ── How I work ── */
   .how{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:28px 0}
   .how div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:20px;font-size:15px;color:var(--muted)}
@@ -146,9 +155,9 @@
   </div>
 
   <div class="chips">
-    <a class="chip reveal" href="#ai" style="--acc:var(--berry);--acc-soft:var(--berry-soft)"><b>I automated a sales team's research job</b><span>one AI-personalized wave: <strong>854 emails, 20 booked sales conversations</strong> — every step attributed</span><em>Read the story ↓</em></a>
-    <a class="chip reveal" href="#demandgen" style="--acc:var(--amber);--acc-soft:var(--amber-soft)"><b>I decided which products got built</b><span>nine concepts put through live demand tests: <strong>3 validated, 5 killed, 1 pivoted</strong> — before any engineering spend</span><em>Read the story ↓</em></a>
-    <a class="chip reveal" href="#honesty" style="--acc:var(--blue);--acc-soft:var(--blue-soft)"><b>I made our metrics tell the truth</b><span>the reported <strong>44.8% open rate was machine-inflated</strong> — I reset the program on the real <strong>22.7% human rate</strong>, then optimized</span><em>Read the story ↓</em></a>
+    <a class="chip reveal" href="#ai" style="--acc:var(--berry);--acc-soft:var(--berry-soft)"><b>I automated a sales team's research job</b><span><strong>1 booked sales conversation for every 43 emails</strong> — researched, written and sent by a system, with zero manual prospecting time</span><em>Read the story ↓</em></a>
+    <a class="chip reveal" href="#demandgen" style="--acc:var(--amber);--acc-soft:var(--amber-soft)"><b>I decided which products got built</b><span><strong>9 product bets settled without a line of code</strong> — 5 killed before they could burn engineering quarters, 3 validated, 1 shipped to build</span><em>Read the story ↓</em></a>
+    <a class="chip reveal" href="#honesty" style="--acc:var(--blue);--acc-soft:var(--blue-soft)"><b>I made the metrics honest — then beat them</b><span><strong>+24% projected engagement on 17% less volume</strong>, +5.6% CTR from AI personalization — measured on human opens, not machine-inflated ones</span><em>Read the story ↓</em></a>
   </div>
 </header>
 
@@ -156,7 +165,15 @@
 <section id="journey">
   <div class="lever">The Journey — 2015 to today</div>
   <p class="sub-lede" style="margin-top:14px">Told in order, because each role taught the next one its method. The colors mark the growth lever each story exercises.</p>
+  <div class="filter" role="group" aria-label="Filter case studies by growth lever">
+    <button class="active" data-filter="all">All</button>
+    <button data-filter="demand-gen" style="--acc:var(--amber);--acc-soft:var(--amber-soft)">Demand Gen</button>
+    <button data-filter="lifecycle" style="--acc:var(--accent);--acc-soft:var(--accent-soft)">Lifecycle</button>
+    <button data-filter="data" style="--acc:var(--blue);--acc-soft:var(--blue-soft)">Data &amp; Measurement</button>
+    <button data-filter="ai" style="--acc:var(--berry);--acc-soft:var(--berry-soft)">AI &amp; Automation</button>
+  </div>
 
+  <div class="case" data-tags="data">
   <div class="lever" style="--acc:var(--blue);--acc-soft:var(--blue-soft);margin-top:26px">2015 – 2021 · Data &amp; Measurement</div>
 <div class="chapter reveal" id="foundations" style="--acc:var(--blue);--acc-soft:var(--blue-soft)">
     <div class="story">
@@ -192,7 +209,9 @@
       </svg>
     </figure>
   </div>
+  </div>
 
+  <div class="case" data-tags="demand-gen data">
   <div class="lever" style="--acc:var(--amber);--acc-soft:var(--amber-soft);margin-top:26px">2022 – 2024 · Demand Gen &amp; Experimentation</div>
 <div class="chapter flip reveal" id="unbabel" style="--acc:var(--amber);--acc-soft:var(--amber-soft)">
     <div class="story">
@@ -224,7 +243,9 @@
       <figcaption>The call opened with evidence: "here is what your customers are experiencing." Data enrichment on the prospect's tool stack completed the picture.</figcaption>
     </figure>
   </div>
+  </div>
 
+  <div class="case" data-tags="demand-gen">
   <div class="lever" style="--acc:var(--amber);--acc-soft:var(--amber-soft);margin-top:26px">2025 · Demand Generation</div>
 <div class="chapter reveal" id="demandgen" style="--acc:var(--amber);--acc-soft:var(--amber-soft)">
     <div class="story">
@@ -256,7 +277,9 @@
       <figcaption>The five kills are the quiet win: engineering quarters that were never spent on products the market didn't want. Validation signal: CAC falling over the test window — best test, €14/lead.</figcaption>
     </figure>
   </div>
+  </div>
 
+  <div class="case" data-tags="lifecycle ai">
   <div class="lever" style="--acc:var(--accent);--acc-soft:var(--accent-soft);margin-top:26px">2025 – 2026 · Lifecycle &amp; Systems</div>
 <div class="chapter flip reveal" id="lifecycle" style="--acc:var(--accent);--acc-soft:var(--accent-soft)">
     <div class="story">
@@ -295,7 +318,9 @@
       <figcaption>The pipeline behind steps 2–4 is public (generalized, synthetic data) in <a href="https://github.com/sara-beh8/lifecycle-campaign-skills" style="color:var(--accent)">lifecycle-campaign-skills</a> and <a href="https://github.com/sara-beh8/lifecycle-ops-standards" style="color:var(--accent)">lifecycle-ops-standards</a>.</figcaption>
     </figure>
   </div>
+  </div>
 
+  <div class="case" data-tags="data lifecycle">
   <div class="lever" style="--acc:var(--blue);--acc-soft:var(--blue-soft);margin-top:26px">2026 · Data &amp; Measurement</div>
 <div class="chapter reveal" id="honesty" style="--acc:var(--blue);--acc-soft:var(--blue-soft)">
     <div class="story">
@@ -328,7 +353,9 @@
       <figcaption>Apple's mail privacy features register opens no human made. Every success threshold was rebuilt on the green number.</figcaption>
     </figure>
   </div>
+  </div>
 
+  <div class="case" data-tags="ai demand-gen">
   <div class="lever" style="--acc:var(--berry);--acc-soft:var(--berry-soft);margin-top:26px">2026 · AI &amp; Automation</div>
 <div class="chapter flip reveal" id="ai" style="--acc:var(--berry);--acc-soft:var(--berry-soft)">
     <div class="story">
@@ -344,9 +371,9 @@
       <h4>One campaign wave, measured end-to-end</h4>
       <div class="sub">Optimisation Signal campaign — sales-led accounts, 2026</div>
       <div style="padding:18px 4px 6px">
-        <div style="font-size:56px;font-weight:800;letter-spacing:-.03em;color:#b8336f;line-height:1">20</div>
-        <div style="font-size:15px;font-weight:700;margin-top:4px">booked sales conversations</div>
-        <div style="font-size:13.5px;color:var(--muted);margin-top:2px">from a single wave of 854 targeted sends</div>
+        <div style="font-size:52px;font-weight:800;letter-spacing:-.03em;color:#b8336f;line-height:1">1 : 43</div>
+        <div style="font-size:15px;font-weight:700;margin-top:4px">one booked sales conversation per 43 emails sent</div>
+        <div style="font-size:13.5px;color:var(--muted);margin-top:2px">854 targeted sends → 20 booked conversations, zero manual research</div>
         <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:16px">
           <span style="font-size:13px;background:#f9e6ee;color:#b8336f;border-radius:6px;padding:4px 10px;font-weight:700">8 demos</span>
           <span style="font-size:13px;background:#f9e6ee;color:#b8336f;border-radius:6px;padding:4px 10px;font-weight:700">12 CSM consultations</span>
@@ -356,6 +383,7 @@
       </div>
       <figcaption>Every number attributed through the campaign dashboard — sends, opens, clicks, bookings, and the deals they created. The research and personalization ran themselves; the sales team took the calls.</figcaption>
     </figure>
+  </div>
   </div>
 </section>
 
@@ -407,6 +435,15 @@
 <script>
   const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }), {threshold:.12});
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  // lever filter
+  const pills = document.querySelectorAll('.filter button');
+  pills.forEach(b => b.addEventListener('click', () => {
+    pills.forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    const f = b.dataset.filter;
+    document.querySelectorAll('.case').forEach(c =>
+      c.classList.toggle('hidden', f !== 'all' && !c.dataset.tags.split(' ').includes(f)));
+  }));
   // hide the photo placeholder note once at least one photo loads
   document.querySelectorAll('.photo-grid img').forEach(img => img.addEventListener('load', () => {
     const n = document.getElementById('photo-note'); if(n) n.style.display='none';
